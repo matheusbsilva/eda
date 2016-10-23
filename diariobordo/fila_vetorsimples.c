@@ -8,13 +8,14 @@ int main(){
     char op;
     fim=ini;
 
-    while (scanf("%c",&op),op!='F') {
+    while (scanf("%c*c",&op),op!='F') {
         switch (op) {
-            case 'I':if(fim < 6)
+            case 'I':{if(fim < 6)
                         scanf("%d",&vetor[fim++]);
                      else
                         printf("Fila cheia\n");
                      break;
+                   }
 
             case 'R':if(fim!=ini)
                         ++ini;
@@ -29,6 +30,8 @@ int main(){
                      else
                         printf("Fila Vazia!\n");
                      break;
+            default:
+                printf("Opçao inválida\n");
 
 
         }

@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int verifica(char *s){
     char *pilha;
     int t,n,i;
     n=strlen(s);
-    pilha=(int *)malloc(n*sizeof(char));
+    pilha=(char *)malloc(n*sizeof(char));
     t=0;//pilha vazia
     for(i=0;s[i]!='\0';i++){
         switch(s[i]){
@@ -22,7 +23,7 @@ int verifica(char *s){
             default: pilha[t++]=s[i];
         }
     }
-    return t==0;    
+    return t==0;
 
 }
 int main(){
