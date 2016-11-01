@@ -11,7 +11,7 @@ int main(){
 
     for(i=0;i < num && topo < 6;i++){
         scanf("%d",&ca);
-        if(pilha[topo-1] >= ca || pilha[topo]==0){
+        if(pilha[topo-1] >= ca || topo==0){
             pilha[topo]=ca;
             massa=massa+pilha[topo];
             topo++;
