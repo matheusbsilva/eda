@@ -6,7 +6,7 @@ typedef struct _no{
     struct _no *esq,*dir;
 }No;
 
-No* inserir(No* raiz, int info){
+No* inserir(No *raiz,int info){
     if(!raiz){
         raiz=(No*)malloc(sizeof(No));
         raiz->info=info;
@@ -16,44 +16,42 @@ No* inserir(No* raiz, int info){
     }
     else if(info > raiz->info){
         raiz->dir=inserir(raiz->dir,info);
-    }
-    else
+
+    }else if(info < raiz->info){
         raiz->esq=inserir(raiz->esq,info);
+
+    }
 
     return raiz;
 }
-
-void busca(No* raiz,int pesq){
-    No *p=raiz;
-    int i=0;
-    while(p!=NULL){
-        if(p->info==pesq){
-            printf("%d\n",i+1);
-            break;
-        }
-        if(p->info > pesq){
-            p=p->esq;
-            i++;
-        }
-        else{
-            p=p->dir;
-            i++;
-        }
-    }
-    if(p==NULL)
-        printf("VALOR NAO LOCALIZADO NA ARVORE\n");
+int altura (No* r) {
+   if (r == NULL)
+      return 0;
+   else {
+      int he = altura (r->esq);
+      int hd = altura (r->dir);
+      if (he < hd) return hd + 1;
+      else return he + 1;
+   }
 }
-
+int totalNos(int alt){
+    int total=1,i;
+    for(i=0;i<alt;i++){
+        total=total*2;
+    }
+    return total-1;
+}
 int main(){
-    int pesq,n,i,num;
-    No *raiz=NULL;
-    scanf("%d %d",&pesq,&n);
+    No* raiz=NULL;
+    int i,n,x,total;
+
+    scanf("%d",&n);
 
     for(i=0;i<n;i++){
-        scanf("%d",&num);
-        raiz=inserir(raiz,num);
+        scanf("%d",&x);
+        raiz=inserir(raiz,x);
     }
-    busca(raiz,pesq);
-
+    total=totalNos(altura(raiz));
+    
     return 0;
 }
