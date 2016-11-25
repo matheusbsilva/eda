@@ -43,8 +43,8 @@ int totalNos(int alt){
 }
 int main(){
     No* raiz=NULL;
-    int i,n,x,total;
-
+    int i,n,x,res;
+    double efi,total;
     scanf("%d",&n);
 
     for(i=0;i<n;i++){
@@ -52,6 +52,8 @@ int main(){
         raiz=inserir(raiz,x);
     }
     total=totalNos(altura(raiz));
-    
+    efi=(n/total)*100;
+    res=efi;
+    printf("Eficiencia de uso: %d%%\n",res);
     return 0;
 }
