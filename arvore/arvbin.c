@@ -28,7 +28,9 @@ No* inserir(No* raiz,int info){
 }
 
 void imprimir_ord(No *raiz){
+  if(raiz!=NULL){
 
+  }
 }
 
 int main(int argc, char const *argv[]) {
@@ -43,7 +45,6 @@ int main(int argc, char const *argv[]) {
               scanf("%d",&info);
               raiz=inserir(raiz,info);
               printf("%d\n",raiz->info);
-              getchar();
               break;
       case 2:break;
       case 3:break;
